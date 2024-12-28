@@ -15,7 +15,6 @@ public class RealTimeChat {
     @Autowired
     private SimpMessagingTemplate simpMessagingTemplate;
 
-
     @MessageMapping("/chat/{groupId}")
     public Message sendToUser(@Payload Message message,
                               @DestinationVariable String groupId) {
