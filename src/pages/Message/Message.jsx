@@ -55,7 +55,6 @@ const Message = () => {
     setLoading(false)
   }
   const handleCreateMessage = (value) => {
-
     const chatId = currentChat.id
     const message = {
       content: value,

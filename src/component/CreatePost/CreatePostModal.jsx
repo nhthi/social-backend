@@ -41,7 +41,7 @@ export const CreatePostModal = ({ open, handleClose }) => {
             },
             onSubmit: (values) => {
                 console.log("formik values :", values);
-                if(values.caption || values.image || values.video){
+                if (values.caption || values.image || values.video) {
                     dispatch(createPostAction(values))
                     handleClose()
                 }
@@ -51,9 +51,12 @@ export const CreatePostModal = ({ open, handleClose }) => {
     const [isLoading, setIsLoading] = useState(false)
     const [selectImage, setSelectImage] = useState('https://getwallpapers.com/wallpaper/full/8/8/e/861137-lee-sin-wallpapers-1920x1080-for-1080p.jpg')
     const [selectVideo, setSelectVideo] = useState(null)
-    const [openModal,setOpenModal] = useState(open)
+    const [openModal, setOpenModal] = useState(open)
+
     const handleSelectImage = async (event) => {
         setIsLoading(true)
+        
+
         const imageUrl = await uploadToCloundinary(event.target.files[0], 'image')
         setSelectImage(imageUrl)
         setIsLoading(false)
@@ -67,7 +70,7 @@ export const CreatePostModal = ({ open, handleClose }) => {
         formik.setFieldValue("video", videoUrl)
     }
 
-    
+
     return (
         <div>
             <Modal
